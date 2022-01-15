@@ -48,6 +48,46 @@ class AddTest extends StatelessWidget{
                 )
               )
             ],
+          ),
+          Row(
+            children: <Widget>[
+              Padding(
+                  padding: EdgeInsets.all(25),
+                  child: const Text("Location")
+              ),
+              Flexible(
+                child: Padding(
+                  padding: EdgeInsets.all(30),
+                  child: TextField(
+                    obscureText: true,
+                    decoration:  InputDecoration(
+                      border: OutlineInputBorder(),
+                      labelText: 'Location'
+                    ),
+                  ),
+                )
+              )
+            ],
+          ),
+          Row(
+            children: <Widget>[
+              Padding(
+                  padding: EdgeInsets.all(25),
+                  child: const Text("Positive or Negative:")
+              ),
+              Flexible(
+                child: Padding(
+                  padding: EdgeInsets.all(30),
+                  child: TextField(
+                    obscureText: true,
+                    decoration:  InputDecoration(
+                      border: OutlineInputBorder(),
+                      labelText: 'Yes/No'
+                    ),
+                  ),
+                )
+              )
+            ],
           )
         ],
       )
