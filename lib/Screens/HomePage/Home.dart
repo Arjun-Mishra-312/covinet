@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:covinet/Screens/HomePage/Tabs/NearbyTesters.dart';
 import 'package:flutter/material.dart';
+import 'Tabs/AddTest.dart';
 import 'Tabs/PersonalInfo.dart';
 
 class Home extends StatelessWidget {
