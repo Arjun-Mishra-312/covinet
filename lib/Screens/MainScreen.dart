@@ -1,25 +1,52 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 
-class MainScreen extends StatelessWidget {
+import 'Homepage/Home.dart';
+
+class MainScreen extends StatefulWidget {
   const MainScreen({Key? key}) : super(key: key);
+
+  @override
+  _MainScreenWidgetState createState() => _MainScreenWidgetState();
+}
+
+class _MainScreenWidgetState extends State<MainScreen> {
+  int _selectedIndex = 0;
+
+  static const List<Widget> _pages = <Widget>[
+    Home(),
+    Icon(Icons.add),
+    Icon(Icons.message),
+  ];
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("main screen"),
-      ),
-      body: GestureDetector(
-        onTap: () {
-        },
-        child: Center(
-          child: Container(
-            decoration: BoxDecoration(border: Border.all(color: Colors.black), borderRadius: BorderRadius.circular(20)),
-            height: 200,
-            width: 200,
-            child: Center(child: Text("Messaging")),
+      body: Center(child: _pages.elementAt(_selectedIndex)),
+      bottomNavigationBar: BottomNavigationBar(
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: 'Home',
           ),
-        ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.library_add),
+            label: 'Add',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.message),
+            label: 'Message',
+          ),
+        ],
+        currentIndex: _selectedIndex,
+        onTap: _onItemTapped,
       ),
     );
   }
