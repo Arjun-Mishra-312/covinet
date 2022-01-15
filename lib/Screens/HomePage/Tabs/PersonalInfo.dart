@@ -9,14 +9,31 @@ class PersonalInfo extends StatelessWidget {
     bool pressed;
     return Scaffold(
         body: Column(children: <Widget>[
-          const Text("Your Testing Locations"),
-          const Text("Are you infected with Covid in the past 14 Days?"),
+          const Text(
+            "Your Previous Tests",
+            style: TextStyle(fontSize: 25),
+            textAlign: TextAlign.left,
+          ),
+          Expanded(child: Container()),
+          const Text("Have you tested positive for Covid in the past 14 Days?",
+              style: TextStyle(fontSize: 15)),
           Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
-                TextButton(onPressed: null, child: const Text('Yes')),
-                TextButton(onPressed: null, child: const Text('No')),
-              ]),
+                OutlinedButton(
+                    onPressed: () {
+                      print("Yes");
+                    },
+                    style: OutlinedButton.styleFrom(primary: Colors.green),
+                    child: const Text('Yes')),
+                OutlinedButton(
+                    onPressed: () {
+                      print("No");
+                     },
+                    style: OutlinedButton.styleFrom(primary: Colors.red),
+                    child: const Text('No')),
+              ]
+            ),
         ]),
         floatingActionButton: FloatingActionButton(
             //For adding more tests
