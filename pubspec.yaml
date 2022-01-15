@@ -18,6 +18,10 @@ dependencies:
   firebase_storage: ^10.0.2
   uuid: ^3.0.4
 
+  # Location picker for flutter
+  google_maps: 6.0.0
+
+
 
   cupertino_icons: ^1.0.2
 
