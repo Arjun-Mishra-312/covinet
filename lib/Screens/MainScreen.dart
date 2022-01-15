@@ -38,8 +38,8 @@ class _MainScreenWidgetState extends State<MainScreen> {
             label: 'Home',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.library_add),
-            label: 'Add',
+            icon: Icon(Icons.library_books),
+            label: 'News',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.message),
