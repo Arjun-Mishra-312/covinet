@@ -188,121 +188,131 @@ class _MessageScreenState extends State<MessageScreen>
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
 
-    return isLoading
-        ? Center(
-            child: Container(
-              height: size.height / 20,
-              width: size.height / 20,
-              child: CircularProgressIndicator(),
-            ),
-          )
-        : Column(
-            children: [
-              SizedBox(
-                height: size.height / 50,
+    return Scaffold(
+      body: isLoading
+          ? Center(
+              child: Container(
+                height: size.height / 20,
+                width: size.height / 20,
+                child: CircularProgressIndicator(),
               ),
-              Container(
-                height: size.height / 14,
-                width: size.width,
-                alignment: Alignment.center,
-                child: Container(
+            )
+          : Column(
+              children: [
+                SizedBox(
+                  height: size.height / 50,
+                ),
+                Container(
                   height: size.height / 14,
-                  width: size.width / 1.15,
-                  child: TextField(
-                    controller: _search,
-                    decoration: InputDecoration(
-                      hintText: "Search Place",
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10),
+                  width: size.width,
+                  alignment: Alignment.center,
+                  child: Container(
+                    height: size.height / 14,
+                    width: size.width / 1.15,
+                    child: TextField(
+                      controller: _search,
+                      decoration: InputDecoration(
+                        hintText: "Search Place",
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10),
+                        ),
                       ),
                     ),
                   ),
                 ),
-              ),
-              SizedBox(
-                height: size.height / 50,
-              ),
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: size.width * .3),
-                child: AnimatedButton(
-                  text: "Search",
-                  pressEvent: () {
-                    onSearch();
-                    AwesomeDialog(
-                        context: context,
-                        dialogType: DialogType.INFO_REVERSED,
-                        borderSide: BorderSide(color: Colors.green, width: 2),
-                        width: 280,
-                        buttonsBorderRadius:
-                            BorderRadius.all(Radius.circular(2)),
-                        headerAnimationLoop: false,
-                        animType: AnimType.BOTTOMSLIDE,
-                        title: 'INFO',
-                        desc: "This area has $count covid-19 cases")
-                      ..show();
-                  },
+                SizedBox(
+                  height: size.height / 50,
                 ),
-              ),
-              SizedBox(
-                height: size.height / 30,
-              ),
-              userMap != null
-                  ? Expanded(
-                      child: Container(
-                        child: ListView.builder(
-                          itemCount: userMap!.length,
-                          itemBuilder: (BuildContext context, int index) {
-                            return ListTile(
-                              onTap: () {
-                                String roomId = chatRoomId(
-                                    _auth.currentUser!.displayName!,
-                                    userMap![index].data()['name']);
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: size.width * .3),
+                  child: AnimatedButton(
+                    text: "Search",
+                    pressEvent: () {
+                      onSearch();
+                      AwesomeDialog(
+                          context: context,
+                          dialogType: DialogType.INFO_REVERSED,
+                          borderSide: BorderSide(color: Colors.green, width: 2),
+                          width: 280,
+                          buttonsBorderRadius:
+                              BorderRadius.all(Radius.circular(2)),
+                          headerAnimationLoop: false,
+                          animType: AnimType.BOTTOMSLIDE,
+                          title: 'INFO',
+                          desc: "This area has $count covid-19 cases")
+                        ..show();
+                    },
+                  ),
+                ),
+                SizedBox(
+                  height: size.height / 30,
+                ),
+                userMap != null
+                    ? Expanded(
+                        child: Container(
+                          child: ListView.builder(
+                            itemCount: userMap!.length,
+                            itemBuilder: (BuildContext context, int index) {
+                              return ListTile(
+                                onTap: () {
+                                  String roomId = chatRoomId(
+                                      _auth.currentUser!.displayName!,
+                                      userMap![index].data()['name']);
 
-                                Navigator.of(context).push(
-                                  MaterialPageRoute(
-                                    builder: (_) => ChatRoom(
-                                      chatRoomId: roomId,
-                                      userMap: userMap![index].data(),
+                                  Navigator.of(context).push(
+                                    MaterialPageRoute(
+                                      builder: (_) => ChatRoom(
+                                        chatRoomId: roomId,
+                                        userMap: userMap![index].data(),
+                                      ),
                                     ),
+                                  );
+                                },
+                                leading: Icon(Icons.account_box,
+                                    color: Colors.black),
+                                title: Text(
+                                  userMap![index].data()['name'],
+                                  style: TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 17,
+                                    fontWeight: FontWeight.w500,
                                   ),
-                                );
-                              },
-                              leading:
-                                  Icon(Icons.account_box, color: Colors.black),
-                              title: Text(
-                                userMap![index].data()['name'],
-                                style: TextStyle(
-                                  color: Colors.black,
-                                  fontSize: 17,
-                                  fontWeight: FontWeight.w500,
                                 ),
-                              ),
-                              subtitle: Row(
-                                children: [
-                                  Text(userMap![index].data()['covid']),
-                                  SizedBox(
-                                    width: 10,
-                                  ),
-                                  Text(
-                                      "Last updated: ${userMap![index].data()['date']}"),
-                                ],
-                              ),
-                              trailing: Icon(Icons.chat, color: Colors.black),
-                            );
-                          },
+                                subtitle: Row(
+                                  children: [
+                                    Text(userMap![index].data()['covid']),
+                                    SizedBox(
+                                      width: 10,
+                                    ),
+                                    Text(
+                                        "Last updated: ${userMap![index].data()['date']}"),
+                                  ],
+                                ),
+                                trailing: Icon(Icons.chat, color: Colors.black),
+                              );
+                            },
+                          ),
                         ),
-                      ),
-                    )
-                  : Container(),
-            ],
+                      )
+                    : Container(),
+              ],
 
-            // floatingActionButton: FloatingActionButton(
-            //   child: Icon(Icons.group),
-            //   onPressed: () => Navigator.of(context).push(
-            //     MaterialPageRoute(
-            //       builder: (_) => GroupChatMessageScreen(),
-            //     ),
-            //   ),
-          );
+              // floatingActionButton: FloatingActionButton(
+              //   child: Icon(Icons.group),
+              //   onPressed: () => Navigator.of(context).push(
+              //     MaterialPageRoute(
+              //       builder: (_) => GroupChatMessageScreen(),
+              //     ),
+              //   ),
+            ),
+      floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.group),
+        onPressed: () => Navigator.of(context).push(
+          MaterialPageRoute(
+            builder: (_) => GroupChatMessageScreen(),
+          ),
+        ),
+      ),
+    );
   }
 }

@@ -1,11 +1,10 @@
-import 'dart:io';
 
 import 'package:covinet/Screens/HomePage/Tabs/GetTestingLocations.dart';
-import 'package:covinet/Screens/HomePage/Tabs/NearbyTesters.dart';
+
 import 'package:covinet/Screens/MessageScreen.dart';
-import 'package:covinet/group_chats/group_chat_screen.dart';
+
 import 'package:flutter/material.dart';
-import 'Tabs/AddTest.dart';
+
 import 'Tabs/PersonalInfo.dart';
 
 class Home extends StatelessWidget {
@@ -18,7 +17,7 @@ class Home extends StatelessWidget {
       child: Scaffold(
         appBar: AppBar(
           automaticallyImplyLeading: false,
-          title: Text("My Name"),
+          title: Text("Covinet"),
           bottom: const TabBar(
             tabs: <Widget>[
               Tab(
@@ -34,6 +33,7 @@ class Home extends StatelessWidget {
           ),
         ),
         body: TabBarView(
+          physics: NeverScrollableScrollPhysics(),
           children: <Widget>[
             Center(
               child: PersonalInfo(),
@@ -46,14 +46,7 @@ class Home extends StatelessWidget {
             ),
           ],
         ),
-        floatingActionButton: FloatingActionButton(
-          child: Icon(Icons.group),
-          onPressed: () => Navigator.of(context).push(
-            MaterialPageRoute(
-              builder: (_) => GroupChatMessageScreen(),
-            ),
-          ),
-        ),
+        
       ),
     );
   }

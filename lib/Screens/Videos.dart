@@ -9,15 +9,16 @@ class VideoScreen extends StatefulWidget {
 }
 
 class _VideoScreenState extends State<VideoScreen> {
-  static String key = "API_KEY";
+  static String key = "AIzaSyCGRa5-7xdH_38AvX_MVjjXwedT6XDsXpo";
 
   YoutubeAPI youtube = YoutubeAPI(key);
   List<YouTubeVideo> videoResult = [];
 
   Future<void> callAPI() async {
-    String query = "Exercise And Yoga";
+    String query = "Covid-19 Information";
     videoResult = await youtube.search(
       query,
+      regionCode: 'US',
       order: 'relevance',
       videoDuration: 'any',
     );
@@ -38,22 +39,22 @@ class _VideoScreenState extends State<VideoScreen> {
     return Column(
       children: [
         Container(
-                height: size.height / 12,
-                width: size.width / 1.1,
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Text(
-                      "Exercise And Yoga",
-                      style: TextStyle(
-                        fontSize: 25,
-                        fontWeight: FontWeight.w500,
-                        //color: Colors.white,
-                      ),
-                    )
-                  ],
+          height: size.height / 12,
+          width: size.width / 1.1,
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Text(
+                "Covid-19 Information",
+                style: TextStyle(
+                  fontSize: 25,
+                  fontWeight: FontWeight.w500,
+                  //color: Colors.white,
                 ),
-              ),
+              )
+            ],
+          ),
+        ),
         Expanded(
           child: Container(
             child: ListView(
@@ -64,6 +65,7 @@ class _VideoScreenState extends State<VideoScreen> {
       ],
     );
   }
+
   Widget listItem(YouTubeVideo video) {
     return Card(
       child: Container(
