@@ -7,19 +7,99 @@ class TestTable extends StatefulWidget {
 
 class _TestTableState extends State<TestTable> {
   List<Map> _data = [
-    {'name': 'RiteAids', 'date': '09/20/2021', 'location': '123 Test Street', 'positive' : 'no'},
-    {'name': 'Walmart', 'date': '80/20/2021', 'location': '123 Test Street', 'positive' : 'no'},
-    {'name': 'Walmart', 'date': '07/20/2021', 'location': '123 Test Street', 'positive' : 'no'},
-    {'name': 'Kaiser', 'date': '10/20/2021', 'location': '123 Test Street', 'positive' : 'no'},
+    {
+      'name': 'RiteAids',
+      'date': '09/20/2021',
+      'location': '123 Test Street',
+      'positive': 'no'
+    },
+    {
+      'name': 'Walmart',
+      'date': '80/20/2021',
+      'location': '123 Test Street',
+      'positive': 'no'
+    },
+    {
+      'name': 'Walmart',
+      'date': '07/20/2021',
+      'location': '123 Test Street',
+      'positive': 'no'
+    },
+    {
+      'name': 'Kaiser',
+      'date': '10/20/2021',
+      'location': '123 Test Street',
+      'positive': 'no'
+    },
+    {
+      'name': 'Kaiser',
+      'date': '10/20/2021',
+      'location': '123 Test Street',
+      'positive': 'no'
+    },
+    {
+      'name': 'Kaiser',
+      'date': '10/20/2021',
+      'location': '123 Test Street',
+      'positive': 'no'
+    },
+    {
+      'name': 'Kaiser',
+      'date': '10/20/2021',
+      'location': '123 Test Street',
+      'positive': 'no'
+    },
+    {
+      'name': 'Kaiser',
+      'date': '10/20/2021',
+      'location': '123 Test Street',
+      'positive': 'no'
+    },
+    {
+      'name': 'Kaiser',
+      'date': '10/20/2021',
+      'location': '123 Test Street',
+      'positive': 'no'
+    },
+    {
+      'name': 'Kaiser',
+      'date': '10/20/2021',
+      'location': '123 Test Street',
+      'positive': 'no'
+    },
+    {
+      'name': 'Kaiser',
+      'date': '10/20/2021',
+      'location': '123 Test Street',
+      'positive': 'no'
+    },
+    {
+      'name': 'Kaiser',
+      'date': '10/20/2021',
+      'location': '123 Test Street',
+      'positive': 'no'
+    },
+    {
+      'name': 'Kaiser',
+      'date': '10/20/2021',
+      'location': '123 Test Street',
+      'positive': 'no'
+    },
+    {
+      'name': 'Kaiser',
+      'date': '10/20/2021',
+      'location': '123 Test Street',
+      'positive': 'no'
+    },
   ];
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        body: ListView(
+        body: SingleChildScrollView(
           scrollDirection: Axis.vertical,
-          children: [_createDataTable()],
+          child: _createDataTable(),
         ),
       ),
     );
@@ -27,18 +107,15 @@ class _TestTableState extends State<TestTable> {
 
   DataTable _createDataTable() {
     return DataTable(
-      columns: _createColumns(), 
+      columns: _createColumns(),
       rows: _createRows(),
       dividerThickness: 5,
       dataRowHeight: 80,
       showBottomBorder: true,
-      headingTextStyle: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white
-                        ),
-      headingRowColor: MaterialStateProperty.resolveWith(
-                        (states) => Colors.black
-                      ),
+      headingTextStyle:
+          TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
+      headingRowColor:
+          MaterialStateProperty.resolveWith((states) => Colors.black),
     );
   }
 
