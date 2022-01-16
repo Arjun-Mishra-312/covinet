@@ -20,6 +20,7 @@ class _PersonalInfoState extends State {
     'location': '',
     'description': '',
     'isPositive': '',
+    'gps_Coords': [],
   };
   List<Map<String, dynamic>> _personalData = [
     {
@@ -122,9 +123,11 @@ class _PersonalInfoState extends State {
     },
   ];
 
-  void _setLocation(List<int> coords) {
+  void _setLocation(List<double> coords, String? name, String? address) {
     setState(() {
-      userFormData['location'] = coords;
+      userFormData['gps_Coords'] = coords;
+      userFormData['name'] = name != null ? name : '';
+      userFormData['location'] = address != null ? address : '';
     });
   }
 
@@ -136,7 +139,8 @@ class _PersonalInfoState extends State {
 
   void _Submit() {
     print(userFormData);
-    _personalData.add(userFormData);
+    Map<String, dynamic> newData = new Map<String, dynamic>.from(userFormData);
+    _personalData.add(newData);
     setState(() {});
     Navigator.pop(context);
   }

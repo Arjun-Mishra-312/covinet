@@ -1,6 +1,7 @@
-import 'dart:html';
+import 'dart:html' hide Point;
 import 'package:google_maps/google_maps.dart';
-import 'package:flutter/material.dart';
+import 'package:google_maps/google_maps_places.dart';
+import 'package:flutter/material.dart' hide Icon;
 
 import 'dart:ui' as ui;
 
@@ -40,7 +41,8 @@ class GoogleMap extends StatelessWidget {
       final myLatlng = LatLng(36.974129, -122.033745);
       final mapOptions = MapOptions()
         ..zoom = 10
-        ..center = myLatlng;
+        ..center = myLatlng
+        ..mapTypeId = 'roadmap';
 
       final elem = DivElement()
         ..id = htmlId
@@ -54,16 +56,74 @@ class GoogleMap extends StatelessWidget {
       map.onClick.listen((mapsMouseEvent) {
         // Add Marker event
         deleteMarkers();
-        addMarker(mapsMouseEvent.latLng!);
+        addMarker(mapsMouseEvent.latLng!, null, null);
       });
+
+      // Create the search box and link it to the UI element.
+      final input = document.createElement('input',
+              'id="pac-input" class="controls" type="text" placeholder="Search Box"')
+          as InputElement;
+      map.controls![ControlPosition.TOP_LEFT as int]!.push(input);
+
+      final searchBox = SearchBox(input);
+
+      // Listen for the event fired when the user selects an item from the
+      // pick list. Retrieve the matching places for that item.
+      searchBox.onPlacesChanged.listen((_) {
+        final places = searchBox.places!;
+
+        if (places.isEmpty) {
+          return;
+        }
+        for (final marker in markers) {
+          marker.map = null;
+        }
+
+        // For each place, get the icon, place name, and location.
+        markers.clear();
+        final bounds = LatLngBounds();
+        for (final place in places) {
+          final image = Icon()
+            ..url = place!.icon
+            ..size = Size(71, 71)
+            ..origin = Point(0, 0)
+            ..anchor = Point(17, 34)
+            ..scaledSize = Size(25, 25);
+
+          // Create a marker for each place.
+          final marker = Marker(MarkerOptions()
+            ..map = map
+            ..title = place.name
+            ..position = place.geometry!.location);
+
+          if (place.geometry?.location != null) {
+            LatLng location = LatLng(
+                place.geometry!.location?.lat, place.geometry!.location?.lng);
+            addMarker(location, place.name, place.formattedAddress);
+            markers.add(marker);
+          }
+
+          bounds.extend(place.geometry!.location);
+        }
+
+        map.fitBounds(bounds);
+      });
+
+      // Bias the SearchBox results towards places that are within the bounds of the
+      // current map's viewport.
+      map.onBoundsChanged.listen((_) {
+        final bounds = map.bounds;
+        searchBox.bounds = bounds;
+      });
+
       return elem;
     });
 
     return HtmlElementView(viewType: htmlId);
   }
 
-  void addMarker(LatLng location) {
-    setLoc([location.lat.toInt(), location.lng.toInt()]);
+  void addMarker(LatLng location, String? name, String? address) {
+    setLoc([location.lat.toDouble(), location.lng.toDouble()], name, address);
     final marker = Marker(MarkerOptions()
       ..position = location
       ..map = map);
