@@ -40,12 +40,7 @@ class _PersonalInfoState extends State {
                 style: TextStyle(fontSize: 25),
                 textAlign: TextAlign.left,
               )),
-          Expanded(
-            child: SizedBox(
-              height: 300,
-              child: TestTable()
-            )
-          ),
+          Expanded(child: SizedBox(height: 300, child: TestTable())),
           const Text("Have you tested positive for Covid in the past 14 Days?",
               style: TextStyle(fontSize: 15)),
           Padding(

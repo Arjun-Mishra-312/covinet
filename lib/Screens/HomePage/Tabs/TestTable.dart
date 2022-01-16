@@ -7,10 +7,10 @@ class TestTable extends StatefulWidget {
 
 class _TestTableState extends State<TestTable> {
   List<Map> _data = [
-    {'name': 'RiteAids', 'date': '09/20/2021', 'location': '123 Test Street'},
-    {'name': 'Walmart', 'date': '80/20/2021', 'location': '123 Test Street'},
-    {'name': 'Walmart', 'date': '07/20/2021', 'location': '123 Test Street'},
-    {'name': 'Kaiser', 'date': '10/20/2021', 'location': '123 Test Street'},
+    {'name': 'RiteAids', 'date': '09/20/2021', 'location': '123 Test Street', 'positive' : 'no'},
+    {'name': 'Walmart', 'date': '80/20/2021', 'location': '123 Test Street', 'positive' : 'no'},
+    {'name': 'Walmart', 'date': '07/20/2021', 'location': '123 Test Street', 'positive' : 'no'},
+    {'name': 'Kaiser', 'date': '10/20/2021', 'location': '123 Test Street', 'positive' : 'no'},
   ];
 
   @override
@@ -46,7 +46,8 @@ class _TestTableState extends State<TestTable> {
     return [
       DataColumn(label: Text('Name')),
       DataColumn(label: Text('Date')),
-      DataColumn(label: Text('Location'))
+      DataColumn(label: Text('Location')),
+      DataColumn(label: Text('Positive?'))
     ];
   }
 
@@ -55,7 +56,8 @@ class _TestTableState extends State<TestTable> {
         .map((data) => DataRow(cells: [
               DataCell(Text(data['name'].toString())),
               DataCell(Text(data['date'])),
-              DataCell(Text(data['location']))
+              DataCell(Text(data['location'])),
+              DataCell(Text(data['positive']))
             ]))
         .toList();
   }
