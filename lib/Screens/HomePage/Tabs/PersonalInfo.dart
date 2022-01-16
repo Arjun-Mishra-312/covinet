@@ -4,6 +4,8 @@ import 'package:covinet/Screens/HomePage/Tabs/AddTest.dart';
 import 'package:covinet/Screens/HomePage/Tabs/TestTable.dart';
 import 'package:flutter/material.dart';
 
+import 'AddLocation.dart';
+
 class PersonalInfo extends StatefulWidget {
   const PersonalInfo({Key? key}) : super(key: key);
 
@@ -16,10 +18,13 @@ class _PersonalInfoState extends State {
     Navigator.of(context)
         .push(new MaterialPageRoute(builder: (BuildContext context) {
       return new Scaffold(
-        appBar: new AppBar(
-          title: new Text("Add New Test")
+        appBar: new AppBar(title: new Text("Add New Test")),
+        body: new Column(
+          children: [
+            AddLocation(),
+            AddTest(),
+          ],
         ),
-        body: new AddTest(),
       );
     }));
   }
