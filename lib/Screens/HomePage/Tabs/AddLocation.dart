@@ -1,12 +1,12 @@
 import 'dart:html';
-import 'package:covinet/Screens/AddLocationForm.dart';
 import 'package:google_maps/google_maps.dart';
 import 'package:flutter/material.dart';
 
 import 'dart:ui' as ui;
 
 class AddLocation extends StatefulWidget {
-  const AddLocation({Key? key}) : super(key: key);
+  const AddLocation({Key? key, required this.setLoc}) : super(key: key);
+  final Function setLoc;
 
   @override
   State<AddLocation> createState() => _AddLocationState();
@@ -19,7 +19,7 @@ class _AddLocationState extends State<AddLocation> {
       height: 300,
       child: Stack(
         children: [
-          GoogleMap(),
+          GoogleMap(setLoc: widget.setLoc),
         ],
       ),
     );
@@ -30,7 +30,8 @@ late GMap map;
 final markers = <Marker>[];
 
 class GoogleMap extends StatelessWidget {
-  const GoogleMap({Key? key}) : super(key: key);
+  const GoogleMap({Key? key, required this.setLoc}) : super(key: key);
+  final Function setLoc;
   @override
   Widget build(BuildContext context) {
     String htmlId = "7";
@@ -62,6 +63,7 @@ class GoogleMap extends StatelessWidget {
   }
 
   void addMarker(LatLng location) {
+    setLoc([location.lat.toInt(), location.lng.toInt()]);
     final marker = Marker(MarkerOptions()
       ..position = location
       ..map = map);

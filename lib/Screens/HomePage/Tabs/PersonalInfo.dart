@@ -12,6 +12,31 @@ class PersonalInfo extends StatefulWidget {
 }
 
 class _PersonalInfoState extends State {
+  Map<String, dynamic> userFormData = {
+    'Name': '',
+    'Date': '',
+    'isPositive': '',
+    'Location': [],
+    'Description': ''
+  };
+
+  void _setLocation(List<int> coords) {
+    setState(() {
+      userFormData['Location'] = coords;
+    });
+  }
+
+  void _setFormData(String key, String val) {
+    setState(() {
+      userFormData[key] = val;
+    });
+  }
+
+  void _Submit() {
+    print(userFormData);
+    //TODO implement submission
+  }
+
   void _opennewpage() {
     Navigator.of(context)
         .push(new MaterialPageRoute(builder: (BuildContext context) {
@@ -19,8 +44,8 @@ class _PersonalInfoState extends State {
         appBar: new AppBar(title: new Text("Add New Test")),
         body: new Column(
           children: [
-            AddLocation(),
-            AddTest(),
+            AddLocation(setLoc: _setLocation),
+            AddTest(setData: _setFormData, submit: _Submit),
           ],
         ),
       );
