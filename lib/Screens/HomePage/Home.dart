@@ -36,7 +36,7 @@ class Home extends StatelessWidget {
               child: PersonalInfo(),
             ),
             Center(
-              child: Text("Nearby Testers"),
+              child: NearbyTesters(),
             ),
             Center(
               child: Text("Test Centers"),
