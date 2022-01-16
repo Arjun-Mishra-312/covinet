@@ -1,98 +1,13 @@
 import 'package:flutter/material.dart';
 
 class TestTable extends StatefulWidget {
+  const TestTable({Key? key, required this.data}) : super(key: key);
+  final List<Map<String, dynamic>> data;
   @override
   _TestTableState createState() => _TestTableState();
 }
 
 class _TestTableState extends State<TestTable> {
-  List<Map> _data = [
-    {
-      'name': 'RiteAids',
-      'date': '09/20/2021',
-      'location': '123 Test Street',
-      'positive': 'no'
-    },
-    {
-      'name': 'Walmart',
-      'date': '80/20/2021',
-      'location': '123 Test Street',
-      'positive': 'no'
-    },
-    {
-      'name': 'Walmart',
-      'date': '07/20/2021',
-      'location': '123 Test Street',
-      'positive': 'no'
-    },
-    {
-      'name': 'Kaiser',
-      'date': '10/20/2021',
-      'location': '123 Test Street',
-      'positive': 'no'
-    },
-    {
-      'name': 'Kaiser',
-      'date': '10/20/2021',
-      'location': '123 Test Street',
-      'positive': 'no'
-    },
-    {
-      'name': 'Kaiser',
-      'date': '10/20/2021',
-      'location': '123 Test Street',
-      'positive': 'no'
-    },
-    {
-      'name': 'Kaiser',
-      'date': '10/20/2021',
-      'location': '123 Test Street',
-      'positive': 'no'
-    },
-    {
-      'name': 'Kaiser',
-      'date': '10/20/2021',
-      'location': '123 Test Street',
-      'positive': 'no'
-    },
-    {
-      'name': 'Kaiser',
-      'date': '10/20/2021',
-      'location': '123 Test Street',
-      'positive': 'no'
-    },
-    {
-      'name': 'Kaiser',
-      'date': '10/20/2021',
-      'location': '123 Test Street',
-      'positive': 'no'
-    },
-    {
-      'name': 'Kaiser',
-      'date': '10/20/2021',
-      'location': '123 Test Street',
-      'positive': 'no'
-    },
-    {
-      'name': 'Kaiser',
-      'date': '10/20/2021',
-      'location': '123 Test Street',
-      'positive': 'no'
-    },
-    {
-      'name': 'Kaiser',
-      'date': '10/20/2021',
-      'location': '123 Test Street',
-      'positive': 'no'
-    },
-    {
-      'name': 'Kaiser',
-      'date': '10/20/2021',
-      'location': '123 Test Street',
-      'positive': 'no'
-    },
-  ];
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -109,7 +24,7 @@ class _TestTableState extends State<TestTable> {
     return DataTable(
       columns: _createColumns(),
       rows: _createRows(),
-      dividerThickness: 5,
+      dividerThickness: 2,
       dataRowHeight: 80,
       showBottomBorder: true,
       headingTextStyle:
@@ -124,17 +39,19 @@ class _TestTableState extends State<TestTable> {
       DataColumn(label: Text('Name')),
       DataColumn(label: Text('Date')),
       DataColumn(label: Text('Location')),
+      DataColumn(label: Text('Description')),
       DataColumn(label: Text('Positive?'))
     ];
   }
 
   List<DataRow> _createRows() {
-    return _data
+    return widget.data
         .map((data) => DataRow(cells: [
               DataCell(Text(data['name'].toString())),
               DataCell(Text(data['date'])),
               DataCell(Text(data['location'])),
-              DataCell(Text(data['positive']))
+              DataCell(Text(data['description'])),
+              DataCell(Text(data['isPositive']))
             ]))
         .toList();
   }
