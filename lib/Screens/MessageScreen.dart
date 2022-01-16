@@ -76,10 +76,7 @@ class _MessageScreenState extends State<MessageScreen> with WidgetsBindingObserv
 
     return Scaffold(
       appBar: AppBar(
-        title: Text("Home Screen"),
-        actions: [
-          IconButton(icon: Icon(Icons.logout), onPressed: () => logOut(context))
-        ],
+        title: Text("Chat"),
       ),
       body: isLoading
           ? Center(

@@ -45,10 +45,8 @@ class _NewsScreenState extends State<NewsScreen> {
                 height: size.height / 12,
                 width: size.width / 1.1,
                 child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    SizedBox(
-                      width: size.width / 4,
-                    ),
                     Text(
                       "Covid-19 Related NEWS",
                       style: TextStyle(
@@ -63,7 +61,7 @@ class _NewsScreenState extends State<NewsScreen> {
               isLoading
                   ? Container(
                       height: size.height / 20,
-                      width: size.height / 20,
+                      width: size.width / 20,
                       child: CircularProgressIndicator(),
                     )
                   : Expanded(
@@ -96,12 +94,12 @@ class _NewsScreenState extends State<NewsScreen> {
           }
         },
         child: Container(
-          padding: EdgeInsets.only(bottom: 10),
+          padding: EdgeInsets.only(bottom: 20),
           child: Column(
             children: [
               Container(
-                height: size.height / 2.5,
-                width: size.width / 2.5,
+                // height: size.height / 2.8,
+                width: size.width / 1.2,
                 decoration: BoxDecoration(
                   border: Border(
                     bottom: BorderSide(width: 1, color: Colors.black),
@@ -115,7 +113,7 @@ class _NewsScreenState extends State<NewsScreen> {
                     : Text("Cant Load image"),
               ),
               Container(
-                width: size.width / 2.5,
+                width: size.width / 1.2,
                 padding: EdgeInsets.symmetric(vertical: 5),
                 child: Text(
                   model.title,
@@ -126,7 +124,7 @@ class _NewsScreenState extends State<NewsScreen> {
                 ),
               ),
               Container(
-                width: size.width / 2.5,
+                width: size.width / 1.2,
                 padding: EdgeInsets.symmetric(vertical: 5),
                 child: Text(
                   model.description,

@@ -1,5 +1,7 @@
 import 'dart:io';
 
+import 'package:covinet/News/news.dart';
+import 'package:covinet/Screens/MessageScreen.dart';
 import 'package:flutter/material.dart';
 
 import 'Homepage/Home.dart';
@@ -14,10 +16,10 @@ class MainScreen extends StatefulWidget {
 class _MainScreenWidgetState extends State<MainScreen> {
   int _selectedIndex = 0;
 
-  static const List<Widget> _pages = <Widget>[
+  static List<Widget> _pages = <Widget>[
     Home(),
-    Icon(Icons.message),
-    Icon(Icons.message),
+    NewsScreen(),
+    MessageScreen(),
   ];
 
   void _onItemTapped(int index) {
