@@ -137,7 +137,8 @@ class _PersonalInfoState extends State {
   void _Submit() {
     print(userFormData);
     _data.add(userFormData);
-    print(_data);
+    setState(() {});
+    Navigator.pop(context);
   }
 
   void _opennewpage() {
