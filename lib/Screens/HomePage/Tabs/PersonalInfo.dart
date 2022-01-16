@@ -139,7 +139,8 @@ class _PersonalInfoState extends State {
 
   void _Submit() {
     print(userFormData);
-    _personalData.add(userFormData);
+    Map<String, dynamic> newData = new Map<String, dynamic>.from(userFormData);
+    _personalData.add(newData);
     setState(() {});
     Navigator.pop(context);
   }
