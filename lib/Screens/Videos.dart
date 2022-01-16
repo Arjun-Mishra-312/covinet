@@ -36,25 +36,12 @@ class _VideoScreenState extends State<VideoScreen> {
   @override
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
-    return Column(
+    return Scaffold(
+      appBar: AppBar(
+            automaticallyImplyLeading: false,
+            title: Text("Covid-19 Information")),
+      body: Column(
       children: [
-        Container(
-          height: size.height / 12,
-          width: size.width / 1.1,
-          child: Row(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Text(
-                "Covid-19 Information",
-                style: TextStyle(
-                  fontSize: 25,
-                  fontWeight: FontWeight.w500,
-                  //color: Colors.white,
-                ),
-              )
-            ],
-          ),
-        ),
         Expanded(
           child: Container(
             child: ListView(
@@ -63,7 +50,8 @@ class _VideoScreenState extends State<VideoScreen> {
           ),
         ),
       ],
-    );
+    )
+  );
   }
 
   Widget listItem(YouTubeVideo video) {

@@ -36,28 +36,14 @@ class _NewsScreenState extends State<NewsScreen> {
 
     return SafeArea(
       child: Scaffold(
+        appBar: AppBar(
+            automaticallyImplyLeading: false,
+            title: Text("Covid-19 Related News")),
         body: Container(
           height: size.height,
           width: size.width,
           child: Column(
             children: [
-              Container(
-                height: size.height / 12,
-                width: size.width / 1.1,
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Text(
-                      "Covid-19 Related NEWS",
-                      style: TextStyle(
-                        fontSize: 25,
-                        fontWeight: FontWeight.w500,
-                        //color: Colors.white,
-                      ),
-                    )
-                  ],
-                ),
-              ),
               isLoading
                   ? Container(
                       height: size.height / 20,
