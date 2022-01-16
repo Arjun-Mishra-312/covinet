@@ -14,23 +14,25 @@ class PersonalInfo extends StatefulWidget {
 }
 
 class _PersonalInfoState extends State {
-	Map<String, dynamic> userFormData = {
+  Map<String, dynamic> userFormData = {
     'Name': '',
     'Date': '',
     'isPositive': '',
     'Location': [],
     'Description': ''
   };
-  void _setLocation(List<int> coords) {
+  void _setLocation(List<double> coords) {
     setState(() {
       userFormData['Location'] = coords;
     });
   }
+
   void _setFormData(String key, String val) {
     setState(() {
       userFormData[key] = val;
     });
   }
+
   void _Submit() {
     print(userFormData);
     //TODO implement submission
@@ -56,23 +58,17 @@ class _PersonalInfoState extends State {
     return Scaffold(
         body: Column(children: <Widget>[
           Padding(
-            padding: EdgeInsets.all(10.0),
-            child: const Text(
-              "Your Previous Tests",
-              style: TextStyle(fontSize: 25),
-              textAlign: TextAlign.left,
-            )
-          ),
-          Expanded(
-            child: Padding(
               padding: EdgeInsets.all(10.0),
-              child: SizedBox(
-                height: 300, 
-                child: TestTable()
-              ),
-              )
-            ),  
-          
+              child: const Text(
+                "Your Previous Tests",
+                style: TextStyle(fontSize: 25),
+                textAlign: TextAlign.left,
+              )),
+          Expanded(
+              child: Padding(
+            padding: EdgeInsets.all(10.0),
+            child: SizedBox(height: 300, child: TestTable()),
+          )),
           const Text("Have you tested positive for Covid in the past 14 Days?",
               style: TextStyle(fontSize: 15)),
           Padding(
