@@ -21,7 +21,7 @@ class _PersonalInfoState extends State {
     'description': '',
     'isPositive': '',
   };
-  List<Map<String, dynamic>> _data = [
+  List<Map<String, dynamic>> _personalData = [
     {
       'name': 'RiteAids',
       'date': '09/20/2021',
@@ -136,7 +136,7 @@ class _PersonalInfoState extends State {
 
   void _Submit() {
     print(userFormData);
-    _data.add(userFormData);
+    _personalData.add(userFormData);
     setState(() {});
     Navigator.pop(context);
   }
@@ -173,7 +173,7 @@ class _PersonalInfoState extends State {
             child: SizedBox(
                 height: 300,
                 child: TestTable(
-                  data: _data,
+                  data: _personalData,
                 )),
           )),
           const Text("Have you tested positive for Covid in the past 14 Days?",
