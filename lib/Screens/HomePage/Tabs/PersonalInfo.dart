@@ -15,20 +15,13 @@ class PersonalInfo extends StatefulWidget {
 
 class _PersonalInfoState extends State {
   Map<String, dynamic> userFormData = {
-<<<<<<< HEAD
-    'Name': '',
-    'Date': '',
-=======
     'name': '',
     'date': '',
     'location': '',
     'description': '',
->>>>>>> 35b7f693b40b14366495aa0e28654d22e7aa8927
     'isPositive': '',
+    'gps_Coords': [],
   };
-<<<<<<< HEAD
-  void _setLocation(List<double> coords) {
-=======
   List<Map<String, dynamic>> _personalData = [
     {
       'name': 'RiteAids',
@@ -130,10 +123,11 @@ class _PersonalInfoState extends State {
     },
   ];
 
-  void _setLocation(List<int> coords) {
->>>>>>> 35b7f693b40b14366495aa0e28654d22e7aa8927
+  void _setLocation(List<double> coords, String? name, String? address) {
     setState(() {
-      userFormData['location'] = coords;
+      userFormData['gps_Coords'] = coords;
+      userFormData['name'] = name != null ? name : '';
+      userFormData['location'] = address != null ? address : '';
     });
   }
 
@@ -179,15 +173,11 @@ class _PersonalInfoState extends State {
           Expanded(
               child: Padding(
             padding: EdgeInsets.all(10.0),
-<<<<<<< HEAD
-            child: SizedBox(height: 300, child: TestTable()),
-=======
             child: SizedBox(
                 height: 300,
                 child: TestTable(
                   data: _personalData,
                 )),
->>>>>>> 35b7f693b40b14366495aa0e28654d22e7aa8927
           )),
           const Text("Have you tested positive for Covid in the past 14 Days?",
               style: TextStyle(fontSize: 15)),

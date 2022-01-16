@@ -14,21 +14,21 @@ class AddTest extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Row(
-              children: <Widget>[
-                Padding(padding: EdgeInsets.all(25), child: const Text("name")),
-                Flexible(
-                    child: Padding(
-                  padding: EdgeInsets.all(30),
-                  child: TextField(
-                    obscureText: false,
-                    decoration: InputDecoration(
-                        border: OutlineInputBorder(), labelText: 'name:'),
-                    onChanged: (value) => setData('name', value),
-                  ),
-                ))
-              ],
-            ),
+            // Row(
+            //   children: <Widget>[
+            //     Padding(padding: EdgeInsets.all(25), child: const Text("name")),
+            //     Flexible(
+            //         child: Padding(
+            //       padding: EdgeInsets.all(30),
+            //       child: TextField(
+            //         obscureText: false,
+            //         decoration: InputDecoration(
+            //             border: OutlineInputBorder(), labelText: 'name:'),
+            //         onChanged: (value) => setData('name', value),
+            //       ),
+            //     ))
+            //   ],
+            // ),
             Row(
               children: <Widget>[
                 Padding(

@@ -56,7 +56,7 @@ class GoogleMap extends StatelessWidget {
       map.onClick.listen((mapsMouseEvent) {
         // Add Marker event
         deleteMarkers();
-        addMarker(mapsMouseEvent.latLng!);
+        addMarker(mapsMouseEvent.latLng!, null, null);
       });
 
       // Create the search box and link it to the UI element.
@@ -99,7 +99,7 @@ class GoogleMap extends StatelessWidget {
           if (place.geometry?.location != null) {
             LatLng location = LatLng(
                 place.geometry!.location?.lat, place.geometry!.location?.lng);
-            addMarker(location);
+            addMarker(location, place.name, place.formattedAddress);
             markers.add(marker);
           }
 
@@ -122,8 +122,8 @@ class GoogleMap extends StatelessWidget {
     return HtmlElementView(viewType: htmlId);
   }
 
-  void addMarker(LatLng location) {
-    setLoc([location.lat.toDouble(), location.lng.toDouble()]);
+  void addMarker(LatLng location, String? name, String? address) {
+    setLoc([location.lat.toDouble(), location.lng.toDouble()], name, address);
     final marker = Marker(MarkerOptions()
       ..position = location
       ..map = map);
