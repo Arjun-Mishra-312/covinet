@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:covinet/Screens/HomePage/Tabs/GetTestingLocations.dart';
 import 'package:covinet/Screens/HomePage/Tabs/NearbyTesters.dart';
 import 'package:flutter/material.dart';
 import 'Tabs/AddTest.dart';
@@ -39,7 +40,7 @@ class Home extends StatelessWidget {
               child: NearbyTesters(),
             ),
             Center(
-              child: Text("Test Centers"),
+              child: GetTestingLocations(),
             ),
           ],
         ),

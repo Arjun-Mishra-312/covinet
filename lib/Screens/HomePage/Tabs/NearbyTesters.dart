@@ -10,7 +10,13 @@ class NearbyTesters extends StatelessWidget {
     // Column is a vertical, linear layout.
     return Column(
       children: <Widget>[
-        Text('Nearby testers in your area'),
+        Padding(
+            padding: EdgeInsets.all(10.0),
+            child: const Text(
+              "People Tested Nearby",
+              style: TextStyle(fontSize: 25),
+              textAlign: TextAlign.left,
+            )),
         SizedBox(height: 10),
         Expanded(
           child: SizedBox(
