@@ -16,15 +16,15 @@ class AddTest extends StatelessWidget {
           children: <Widget>[
             Row(
               children: <Widget>[
-                Padding(padding: EdgeInsets.all(25), child: const Text("Name")),
+                Padding(padding: EdgeInsets.all(25), child: const Text("name")),
                 Flexible(
                     child: Padding(
                   padding: EdgeInsets.all(30),
                   child: TextField(
                     obscureText: false,
                     decoration: InputDecoration(
-                        border: OutlineInputBorder(), labelText: 'Name:'),
-                    onChanged: (value) => setData('Name', value),
+                        border: OutlineInputBorder(), labelText: 'name:'),
+                    onChanged: (value) => setData('name', value),
                   ),
                 ))
               ],
@@ -32,7 +32,7 @@ class AddTest extends StatelessWidget {
             Row(
               children: <Widget>[
                 Padding(
-                    padding: EdgeInsets.all(25), child: const Text("Date:")),
+                    padding: EdgeInsets.all(25), child: const Text("date:")),
                 Flexible(
                     child: Padding(
                   padding: EdgeInsets.all(30),
@@ -40,7 +40,7 @@ class AddTest extends StatelessWidget {
                     obscureText: false,
                     decoration: InputDecoration(
                         border: OutlineInputBorder(), labelText: 'MM/DD/YYYY'),
-                    onChanged: (value) => setData('Date', value),
+                    onChanged: (value) => setData('date', value),
                   ),
                 ))
               ],
@@ -49,15 +49,15 @@ class AddTest extends StatelessWidget {
               children: <Widget>[
                 Padding(
                     padding: EdgeInsets.all(25),
-                    child: const Text("Description")),
+                    child: const Text("description")),
                 Flexible(
                     child: Padding(
                   padding: EdgeInsets.all(30),
                   child: TextField(
                     obscureText: false,
                     decoration: InputDecoration(
-                        border: OutlineInputBorder(), labelText: 'Description'),
-                    onChanged: (value) => setData('Description', value),
+                        border: OutlineInputBorder(), labelText: 'description'),
+                    onChanged: (value) => setData('description', value),
                   ),
                 ))
               ],
@@ -66,7 +66,7 @@ class AddTest extends StatelessWidget {
               children: <Widget>[
                 Padding(
                     padding: EdgeInsets.all(25),
-                    child: const Text("Positive or Negative:")),
+                    child: const Text("Positive?:")),
                 Flexible(
                     child: Padding(
                   padding: EdgeInsets.all(30),

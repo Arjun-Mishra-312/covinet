@@ -14,26 +14,131 @@ class PersonalInfo extends StatefulWidget {
 }
 
 class _PersonalInfoState extends State {
-	Map<String, dynamic> userFormData = {
-    'Name': '',
-    'Date': '',
+  Map<String, dynamic> userFormData = {
+    'name': '',
+    'date': '',
+    'location': '',
+    'description': '',
     'isPositive': '',
-    'Location': [],
-    'Description': ''
   };
+  List<Map<String, dynamic>> _personalData = [
+    {
+      'name': 'RiteAids',
+      'date': '09/20/2021',
+      'location': '123 Test Street',
+      'description': 'good',
+      'isPositive': 'no'
+    },
+    {
+      'name': 'Walmart',
+      'date': '80/20/2021',
+      'location': '123 Test Street',
+      'description': 'good',
+      'isPositive': 'no'
+    },
+    {
+      'name': 'Walmart',
+      'date': '07/20/2021',
+      'location': '123 Test Street',
+      'description': 'good',
+      'isPositive': 'no'
+    },
+    {
+      'name': 'Kaiser',
+      'date': '10/20/2021',
+      'location': '123 Test Street',
+      'description': 'good',
+      'isPositive': 'no'
+    },
+    {
+      'name': 'Kaiser',
+      'date': '10/20/2021',
+      'location': '123 Test Street',
+      'description': 'good',
+      'isPositive': 'no'
+    },
+    {
+      'name': 'Kaiser',
+      'date': '10/20/2021',
+      'location': '123 Test Street',
+      'description': 'good',
+      'isPositive': 'no'
+    },
+    {
+      'name': 'Kaiser',
+      'date': '10/20/2021',
+      'location': '123 Test Street',
+      'description': 'good',
+      'isPositive': 'no'
+    },
+    {
+      'name': 'Kaiser',
+      'date': '10/20/2021',
+      'location': '123 Test Street',
+      'description': 'good',
+      'isPositive': 'no'
+    },
+    {
+      'name': 'Kaiser',
+      'date': '10/20/2021',
+      'location': '123 Test Street',
+      'description': 'good',
+      'isPositive': 'no'
+    },
+    {
+      'name': 'Kaiser',
+      'date': '10/20/2021',
+      'location': '123 Test Street',
+      'description': 'good',
+      'isPositive': 'no'
+    },
+    {
+      'name': 'Kaiser',
+      'date': '10/20/2021',
+      'location': '123 Test Street',
+      'description': 'good',
+      'isPositive': 'no'
+    },
+    {
+      'name': 'Kaiser',
+      'date': '10/20/2021',
+      'location': '123 Test Street',
+      'description': 'good',
+      'isPositive': 'no'
+    },
+    {
+      'name': 'Kaiser',
+      'date': '10/20/2021',
+      'location': '123 Test Street',
+      'description': 'good',
+      'isPositive': 'no'
+    },
+    {
+      'name': 'Kaiser',
+      'date': '10/20/2021',
+      'location': '123 Test Street',
+      'description': 'good',
+      'isPositive': 'no'
+    },
+  ];
+
   void _setLocation(List<int> coords) {
     setState(() {
-      userFormData['Location'] = coords;
+      userFormData['location'] = coords;
     });
   }
+
   void _setFormData(String key, String val) {
     setState(() {
       userFormData[key] = val;
     });
   }
+
   void _Submit() {
     print(userFormData);
-    //TODO implement submission
+    _personalData.add(userFormData);
+    setState(() {});
+    Navigator.pop(context);
   }
 
   void _opennewpage() {
@@ -56,23 +161,21 @@ class _PersonalInfoState extends State {
     return Scaffold(
         body: Column(children: <Widget>[
           Padding(
-            padding: EdgeInsets.all(10.0),
-            child: const Text(
-              "Your Previous Tests",
-              style: TextStyle(fontSize: 25),
-              textAlign: TextAlign.left,
-            )
-          ),
-          Expanded(
-            child: Padding(
               padding: EdgeInsets.all(10.0),
-              child: SizedBox(
-                height: 300, 
-                child: TestTable()
-              ),
-              )
-            ),  
-          
+              child: const Text(
+                "Your Previous Tests",
+                style: TextStyle(fontSize: 25),
+                textAlign: TextAlign.left,
+              )),
+          Expanded(
+              child: Padding(
+            padding: EdgeInsets.all(10.0),
+            child: SizedBox(
+                height: 300,
+                child: TestTable(
+                  data: _personalData,
+                )),
+          )),
           const Text("Have you tested positive for Covid in the past 14 Days?",
               style: TextStyle(fontSize: 15)),
           Padding(
