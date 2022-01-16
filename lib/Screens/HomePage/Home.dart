@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:covinet/Screens/HomePage/Tabs/NearbyTesters.dart';
 import 'package:flutter/material.dart';
+import 'Tabs/AddTest.dart';
 import 'Tabs/PersonalInfo.dart';
 
 class Home extends StatelessWidget {
@@ -35,7 +36,7 @@ class Home extends StatelessWidget {
               child: PersonalInfo(),
             ),
             Center(
-              child: Text("Nearby Testers"),
+              child: NearbyTesters(),
             ),
             Center(
               child: Text("Test Centers"),

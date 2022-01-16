@@ -12,19 +12,24 @@ class NearbyTesters extends StatelessWidget {
       children: <Widget>[
         Text('Nearby testers in your area'),
         SizedBox(height: 10),
-        ListView.separated(
-          padding: const EdgeInsets.all(8),
-          itemCount: entries.length,
-          itemBuilder: (BuildContext context, int index) {
-            return Container(
-              height: 50,
-              child: UserCard(
-                userData: entries[index],
-              ),
-            );
-          },
-          separatorBuilder: (BuildContext context, int index) =>
-              const Divider(),
+        Expanded(
+          child: SizedBox(
+            height: 200,
+            child: ListView.separated(
+              padding: const EdgeInsets.all(8),
+              itemCount: entries.length,
+              itemBuilder: (BuildContext context, int index) {
+                return Container(
+                  height: 50,
+                  child: UserCard(
+                    userData: entries[index],
+                  ),
+                );
+              },
+              separatorBuilder: (BuildContext context, int index) =>
+                  const Divider(),
+            ),
+          ),
         ),
       ],
     );
