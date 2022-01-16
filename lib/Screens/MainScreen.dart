@@ -1,5 +1,8 @@
 import 'dart:io';
 
+import 'package:covinet/News/news.dart';
+import 'package:covinet/Screens/MessageScreen.dart';
+import 'package:covinet/Screens/Videos.dart';
 import 'package:flutter/material.dart';
 
 import 'Homepage/Home.dart';
@@ -14,10 +17,10 @@ class MainScreen extends StatefulWidget {
 class _MainScreenWidgetState extends State<MainScreen> {
   int _selectedIndex = 0;
 
-  static const List<Widget> _pages = <Widget>[
+  static List<Widget> _pages = <Widget>[
     Home(),
-    Icon(Icons.message),
-    Icon(Icons.message),
+    NewsScreen(),
+    VideoScreen(),
   ];
 
   void _onItemTapped(int index) {
@@ -41,8 +44,8 @@ class _MainScreenWidgetState extends State<MainScreen> {
             label: 'News',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.message),
-            label: 'Message',
+            icon: Icon(Icons.ondemand_video_rounded),
+            label: 'Videos',
           ),
         ],
         currentIndex: _selectedIndex,

@@ -3,7 +3,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
-Future<User?> createAccount(String name, String email, String password) async {
+Future<User?> createAccount(String name, String covid, String date,String email, String password) async {
   FirebaseAuth _auth = FirebaseAuth.instance;
 
   FirebaseFirestore _firestore = FirebaseFirestore.instance;
@@ -18,6 +18,8 @@ Future<User?> createAccount(String name, String email, String password) async {
 
     await _firestore.collection('users').doc(_auth.currentUser!.uid).set({
       "name": name,
+      "covid": covid,
+      "date": date,
       "email": email,
       "status": "Unavalible",
       "uid": _auth.currentUser!.uid,

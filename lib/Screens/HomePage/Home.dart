@@ -1,9 +1,10 @@
-import 'dart:io';
 
 import 'package:covinet/Screens/HomePage/Tabs/GetTestingLocations.dart';
-import 'package:covinet/Screens/HomePage/Tabs/NearbyTesters.dart';
+
+import 'package:covinet/Screens/MessageScreen.dart';
+
 import 'package:flutter/material.dart';
-import 'Tabs/AddTest.dart';
+
 import 'Tabs/PersonalInfo.dart';
 
 class Home extends StatelessWidget {
@@ -16,7 +17,7 @@ class Home extends StatelessWidget {
       child: Scaffold(
         appBar: AppBar(
           automaticallyImplyLeading: false,
-          title: Text("My Name"),
+          title: Text("Covinet"),
           bottom: const TabBar(
             tabs: <Widget>[
               Tab(
@@ -31,19 +32,21 @@ class Home extends StatelessWidget {
             ],
           ),
         ),
-        body: const TabBarView(
+        body: TabBarView(
+          physics: NeverScrollableScrollPhysics(),
           children: <Widget>[
             Center(
               child: PersonalInfo(),
             ),
             Center(
-              child: NearbyTesters(),
+              child: MessageScreen(),
             ),
             Center(
               child: GetTestingLocations(),
             ),
           ],
         ),
+        
       ),
     );
   }

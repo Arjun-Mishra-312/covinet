@@ -26,12 +26,12 @@ class _GetTestingLocationsState extends State<GetTestingLocations> {
 }
 
 List<List<double>> locations = [
-  [37.000956610797054, -122.0575087059558],
-  [36.9753158712058, -122.02377724363483],
-  [36.96276658470581, -122.04446244097345],
-  [36.96985193153581, -122.03821084412057],
-  [36.980488666503796, -122.01925557503225],
-  [36.963875988824526, -122.03725469700049],
+  [37.000956610797054, -122.0575087059558, 40],
+  [36.9753158712058, -122.02377724363483, 44],
+  [36.96276658470581, -122.04446244097345, 78],
+  [36.96985193153581, -122.03821084412057,54],
+  [36.980488666503796, -122.01925557503225, 39],
+  [36.963875988824526, -122.03725469700049,82],
 ];
 
 class TestingMap extends StatelessWidget {
@@ -53,14 +53,15 @@ class TestingMap extends StatelessWidget {
         ..style.border = 'none';
 
       final newMap = GMap(elem, mapOptions);
-      void addMarker(LatLng location) {
+      void addMarker(LatLng location, double i) {
         Marker(MarkerOptions()
           ..position = location
-          ..map = newMap);
+          ..map = newMap
+          ..label = "Slots Available: $i");
       }
 
       for (List<double> coords in locations) {
-        addMarker(LatLng(coords[0], coords[1]));
+        addMarker(LatLng(coords[0], coords[1]), coords[2]);
       }
 
       return elem;
