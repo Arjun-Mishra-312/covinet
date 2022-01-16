@@ -1,6 +1,7 @@
 import 'dart:html';
 
 import 'package:covinet/Screens/HomePage/Tabs/AddTest.dart';
+import 'package:covinet/Screens/HomePage/Tabs/TestTable.dart';
 import 'package:flutter/material.dart';
 
 class PersonalInfo extends StatefulWidget {
@@ -34,14 +35,12 @@ class _PersonalInfoState extends State {
                 style: TextStyle(fontSize: 25),
                 textAlign: TextAlign.left,
               )),
-          Padding(
-              padding: EdgeInsets.all(10.0),
-              child: const Text(
-                "You have no previous tests",
-                style: TextStyle(fontSize: 15),
-                textAlign: TextAlign.left,
-              )),
-          Expanded(child: Container()),
+          Expanded(
+            child: SizedBox(
+              height: 300,
+              child: TestTable()
+            )
+          ),
           const Text("Have you tested positive for Covid in the past 14 Days?",
               style: TextStyle(fontSize: 15)),
           Padding(
