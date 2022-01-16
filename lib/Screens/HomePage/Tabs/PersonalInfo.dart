@@ -1,5 +1,6 @@
 import 'dart:html';
 
+import 'package:covinet/Screens/HomePage/Tabs/AddLocation.dart';
 import 'package:covinet/Screens/HomePage/Tabs/AddTest.dart';
 import 'package:flutter/material.dart';
 
@@ -15,10 +16,13 @@ class _PersonalInfoState extends State {
     Navigator.of(context)
         .push(new MaterialPageRoute(builder: (BuildContext context) {
       return new Scaffold(
-        appBar: new AppBar(
-          title: new Text("Add New Test")
+        appBar: new AppBar(title: new Text("Add New Test")),
+        body: new Column(
+          children: [
+            AddLocation(),
+            AddTest(),
+          ],
         ),
-        body: new AddTest(),
       );
     }));
   }

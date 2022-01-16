@@ -1,6 +1,5 @@
 import 'dart:io';
 
-import 'package:covinet/Screens/AddLocation.dart';
 import 'package:flutter/material.dart';
 
 import 'Homepage/Home.dart';
@@ -17,7 +16,7 @@ class _MainScreenWidgetState extends State<MainScreen> {
 
   static const List<Widget> _pages = <Widget>[
     Home(),
-    AddLocation(),
+    Icon(Icons.message),
     Icon(Icons.message),
   ];
 
