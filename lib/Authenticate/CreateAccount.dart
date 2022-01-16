@@ -2,8 +2,6 @@ import 'package:covinet/Authenticate/Methods.dart';
 import 'package:covinet/Screens/MainScreen.dart';
 import 'package:flutter/material.dart';
 
-
-
 class CreateAccount extends StatefulWidget {
   @override
   _CreateAccountState createState() => _CreateAccountState();
@@ -34,12 +32,12 @@ class _CreateAccountState extends State<CreateAccount> {
                   SizedBox(
                     height: size.height / 20,
                   ),
-                  Container(
-                    alignment: Alignment.centerLeft,
-                    width: size.width / 0.5,
-                    child: IconButton(
-                        icon: Icon(Icons.arrow_back_ios), onPressed: () {}),
-                  ),
+                  // Container(
+                  //   alignment: Alignment.centerLeft,
+                  //   width: size.width / 0.5,
+                  //   child: IconButton(
+                  //       icon: Icon(Icons.arrow_back_ios), onPressed: () {}),
+                  // ),
                   SizedBox(
                     height: size.height / 50,
                   ),
@@ -56,7 +54,7 @@ class _CreateAccountState extends State<CreateAccount> {
                   Container(
                     width: size.width / 1.1,
                     child: Text(
-                      "Create Account to Contiue!",
+                      "Create Account to Continue!",
                       style: TextStyle(
                         color: Colors.grey[700],
                         fontSize: 20,

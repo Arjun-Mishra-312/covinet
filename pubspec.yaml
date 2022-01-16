@@ -20,6 +20,10 @@ dependencies:
   http: ^0.13.3
   url_launcher:
 
+  # Location picker for flutter
+  google_maps: 6.0.0
+
+
 
   cupertino_icons: ^1.0.2
 

@@ -1,54 +1,52 @@
-import 'package:covinet/News/news.dart';
-import 'package:covinet/Screens/MessageScreen.dart';
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 
-class MainScreen extends StatelessWidget {
+import 'Homepage/Home.dart';
+
+class MainScreen extends StatefulWidget {
   const MainScreen({Key? key}) : super(key: key);
+
+  @override
+  _MainScreenWidgetState createState() => _MainScreenWidgetState();
+}
+
+class _MainScreenWidgetState extends State<MainScreen> {
+  int _selectedIndex = 0;
+
+  static const List<Widget> _pages = <Widget>[
+    Home(),
+    Icon(Icons.message),
+    Icon(Icons.message),
+  ];
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("main screen"),
-      ),
-      body: Column(
-        children: [
-          GestureDetector(
-            onTap: () {
-              Navigator.of(context)
-                  .push(MaterialPageRoute(builder: (_) => MessageScreen()));
-            },
-            child: Center(
-              child: Container(
-                decoration: BoxDecoration(
-                    border: Border.all(color: Colors.black),
-                    borderRadius: BorderRadius.circular(20)),
-                height: 200,
-                width: 200,
-                child: Center(child: Text("Messaging")),
-              ),
-            ),
+      body: Center(child: _pages.elementAt(_selectedIndex)),
+      bottomNavigationBar: BottomNavigationBar(
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: 'Home',
           ),
-          SizedBox(
-            height: 200,
+          BottomNavigationBarItem(
+            icon: Icon(Icons.library_books),
+            label: 'News',
           ),
-          GestureDetector(
-            onTap: () {
-              Navigator.of(context)
-                  .push(MaterialPageRoute(builder: (_) => NewsScreen()));
-            },
-            child: Center(
-              child: Container(
-                decoration: BoxDecoration(
-                    border: Border.all(color: Colors.black),
-                    borderRadius: BorderRadius.circular(20)),
-                height: 200,
-                width: 200,
-                child: Center(child: Text("NEWS")),
-              ),
-            ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.message),
+            label: 'Message',
           ),
         ],
+        currentIndex: _selectedIndex,
+        onTap: _onItemTapped,
       ),
     );
   }
