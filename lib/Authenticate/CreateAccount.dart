@@ -10,6 +10,8 @@ class CreateAccount extends StatefulWidget {
 class _CreateAccountState extends State<CreateAccount> {
   final TextEditingController _name = TextEditingController();
   final TextEditingController _email = TextEditingController();
+  final TextEditingController _covid = TextEditingController();
+  final TextEditingController _date = TextEditingController();
   final TextEditingController _password = TextEditingController();
   bool isLoading = false;
 
@@ -66,20 +68,39 @@ class _CreateAccountState extends State<CreateAccount> {
                     height: size.height / 20,
                   ),
                   Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 18.0),
+                    padding: const EdgeInsets.symmetric(vertical: 9.0),
                     child: Container(
                       width: size.width,
                       alignment: Alignment.center,
                       child: field(size, "Name", Icons.account_box, _name),
                     ),
                   ),
-                  Container(
-                    width: size.width,
-                    alignment: Alignment.center,
-                    child: field(size, "email", Icons.account_box, _email),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 9.0),
+                    child: Container(
+                      width: size.width,
+                      alignment: Alignment.center,
+                      child: field(size, "email", Icons.email_rounded, _email),
+                    ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 18.0),
+                    padding: const EdgeInsets.symmetric(vertical: 9.0),
+                    child: Container(
+                      width: size.width,
+                      alignment: Alignment.center,
+                      child: field(size, "covid report", Icons.masks, _covid),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 9.0),
+                    child: Container(
+                      width: size.width,
+                      alignment: Alignment.center,
+                      child: field(size, "last tested on", Icons.calendar_today_rounded, _date),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 9.0),
                     child: Container(
                       width: size.width,
                       alignment: Alignment.center,
@@ -120,7 +141,7 @@ class _CreateAccountState extends State<CreateAccount> {
             isLoading = true;
           });
 
-          createAccount(_name.text, _email.text, _password.text).then((user) {
+          createAccount(_name.text, _covid.text, _date.text, _email.text, _password.text).then((user) {
             if (user != null) {
               setState(() {
                 isLoading = false;
@@ -164,6 +185,7 @@ class _CreateAccountState extends State<CreateAccount> {
       height: size.height / 14,
       width: size.width / 1.1,
       child: TextField(
+        obscureText: hintText == "password" ? true : false,
         controller: cont,
         decoration: InputDecoration(
           prefixIcon: Icon(icon),

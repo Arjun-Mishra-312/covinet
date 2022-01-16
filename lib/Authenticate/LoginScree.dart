@@ -68,7 +68,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   Container(
                     width: size.width,
                     alignment: Alignment.center,
-                    child: field(size, "email", Icons.account_box, _email),
+                    child: field(size, "email", Icons.mail_rounded, _email),
                   ),
                   Padding(
                     padding: const EdgeInsets.symmetric(vertical: 18.0),
@@ -155,6 +155,7 @@ class _LoginScreenState extends State<LoginScreen> {
       height: size.height / 14,
       width: size.width / 1.1,
       child: TextField(
+        obscureText: hintText == "password" ? true : false,
         controller: cont,
         decoration: InputDecoration(
           prefixIcon: Icon(icon),

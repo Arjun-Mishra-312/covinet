@@ -10,13 +10,9 @@ class TestTable extends StatefulWidget {
 class _TestTableState extends State<TestTable> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        body: SingleChildScrollView(
-          scrollDirection: Axis.vertical,
-          child: _createDataTable(),
-        ),
-      ),
+    return SingleChildScrollView(
+      scrollDirection: Axis.vertical,
+      child: _createDataTable(),
     );
   }
 
