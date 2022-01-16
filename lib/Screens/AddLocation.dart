@@ -20,7 +20,7 @@ late GMap map;
     'long': 234.2342
   ],
 }
-*/ 
+*/
 
 //  final static_marker_1 = Marker(MarkerOptions()
 //         ..position = myLatlng
@@ -39,12 +39,12 @@ late GMap map;
  * Map<String, dyanmic> 
  * uid : asfljdgldGAJSFKL%5820 
  * jsonB : $ref user schema
- */ 
+ */
 
- // [{name: person1, date,...}, {name: person2, date2: ..}]
-void CreateMarker(List<Map<String, dynamic>> jsonData){
-  //@TODO parse locations and call addMarker 
-  /**
+// [{name: person1, date,...}, {name: person2, date2: ..}]
+// void CreateMarker(List<Map<String, dynamic>> jsonData){
+//@TODO parse locations and call addMarker
+/**
    * for every JSONB 
    *      for every pin inside user's pins
    *      create Marker
@@ -54,46 +54,46 @@ void CreateMarker(List<Map<String, dynamic>> jsonData){
     if (item['id'] == hashtagId) {
      print(item['title']);
     } 
+    */
 
-    /** 
+/** 
      *  [0] uid : [name, email, List: [Geocordinates]] 
      *  for(every blob in list) 
      *      key = blob.keys() wouldn't work here <- 
      *      for(var e in blob[key[0]]) 
      *          //add to list
      */
-  });
-  /**
+// });
+/**
     {
       name: person
       ping[[x1, y1], [x2, y2]]
     }
    */
-      // entire document
-      for(var jsonBlob in jsonData) { 
-        coords = jsonBlob['pins'];
-        // specific to the user
-        for (var coord in coords) {
-          var 
+// entire document
+// for(var jsonBlob in jsonData) {
+//   coords = jsonBlob['pins'];
+//   // specific to the user
+//   for (var coord in coords) {
+//     var
 
-        }
+//   }
 
-      }
-  //  jsonData.forEach( (ele) => {
-  //    ele.keys
-  //   for(var k in ele.pins) { 
-  //     final marker = Marker(MarkerOptions()
-  //       ..position = myLatlng
-  //       ..map = map
-  //       ..title = 'Hello World!'
-  //       ..label = 'h',
-  //     );
-  //   }   
-  // });
- 
+// }
+//  jsonData.forEach( (ele) => {
+//    ele.keys
+//   for(var k in ele.pins) {
+//     final marker = Marker(MarkerOptions()
+//       ..position = myLatlng
+//       ..map = map
+//       ..title = 'Hello World!'
+//       ..label = 'h',
+//     );
+//   }
+// });
 
-  //addMarker(LatLng)
-}
+//addMarker(LatLng)
+// }
 
 class AddLocation extends StatefulWidget {
   const AddLocation({Key? key}) : super(key: key);
@@ -125,7 +125,7 @@ class GoogleMap extends StatelessWidget {
       final myLatlng2 = LatLng(36.974129, -122.033745);
       final myLatLng3 = LatLng(37.459244, -122.2345604);
       final myLatLng4 = LatLng(36.4523124, -122.345667);
-      <LatLng> m;
+
       final mapOptions = MapOptions()
         ..zoom = 10
         ..center = LatLng(36.974129, -122.033745);
@@ -208,23 +208,4 @@ void addMarker(LatLng location) {
   markers.add(marker);
 }
 
-var contentString = '<div id="content">' +
-    '<div id="siteNotice">' +
-    '</div>' +
-    '<h1 id="firstHeading" class="firstHeading">Uluru</h1>' +
-    '<div id="bodyContent">' +
-    '<p><b>Uluru</b>, also referred to as <b>Ayers Rock</b>, is a large ' +
-    'sandstone rock formation in the southern part of the ' +
-    'Northern Territory, central Australia. It lies 335&#160;km (208&#160;mi) ' +
-    'south west of the nearest large town, Alice Springs; 450&#160;km ' +
-    '(280&#160;mi) by road. Kata Tjuta and Uluru are the two major ' +
-    'features of the Uluru - Kata Tjuta National Park. Uluru is ' +
-    'sacred to the Pitjantjatjara and Yankunytjatjara, the ' +
-    'Aboriginal people of the area. It has many springs, waterholes, ' +
-    'rock caves and ancient paintings. Uluru is listed as a World ' +
-    'Heritage Site.</p>' +
-    '<p>Attribution: Uluru, <a href="https://en.wikipedia.org/w/index.php?title=Uluru&oldid=297882194">' +
-    'https://en.wikipedia.org/w/index.php?title=Uluru</a> ' +
-    '(last visited June 22, 2009).</p>' +
-    '</div>' +
-    '</div>';
+var contentString = '';
