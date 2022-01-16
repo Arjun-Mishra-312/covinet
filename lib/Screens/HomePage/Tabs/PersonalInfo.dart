@@ -15,15 +15,125 @@ class PersonalInfo extends StatefulWidget {
 
 class _PersonalInfoState extends State {
   Map<String, dynamic> userFormData = {
+<<<<<<< HEAD
     'Name': '',
     'Date': '',
+=======
+    'name': '',
+    'date': '',
+    'location': '',
+    'description': '',
+>>>>>>> 35b7f693b40b14366495aa0e28654d22e7aa8927
     'isPositive': '',
-    'Location': [],
-    'Description': ''
   };
+<<<<<<< HEAD
   void _setLocation(List<double> coords) {
+=======
+  List<Map<String, dynamic>> _personalData = [
+    {
+      'name': 'RiteAids',
+      'date': '09/20/2021',
+      'location': '123 Test Street',
+      'description': 'good',
+      'isPositive': 'no'
+    },
+    {
+      'name': 'Walmart',
+      'date': '80/20/2021',
+      'location': '123 Test Street',
+      'description': 'good',
+      'isPositive': 'no'
+    },
+    {
+      'name': 'Walmart',
+      'date': '07/20/2021',
+      'location': '123 Test Street',
+      'description': 'good',
+      'isPositive': 'no'
+    },
+    {
+      'name': 'Kaiser',
+      'date': '10/20/2021',
+      'location': '123 Test Street',
+      'description': 'good',
+      'isPositive': 'no'
+    },
+    {
+      'name': 'Kaiser',
+      'date': '10/20/2021',
+      'location': '123 Test Street',
+      'description': 'good',
+      'isPositive': 'no'
+    },
+    {
+      'name': 'Kaiser',
+      'date': '10/20/2021',
+      'location': '123 Test Street',
+      'description': 'good',
+      'isPositive': 'no'
+    },
+    {
+      'name': 'Kaiser',
+      'date': '10/20/2021',
+      'location': '123 Test Street',
+      'description': 'good',
+      'isPositive': 'no'
+    },
+    {
+      'name': 'Kaiser',
+      'date': '10/20/2021',
+      'location': '123 Test Street',
+      'description': 'good',
+      'isPositive': 'no'
+    },
+    {
+      'name': 'Kaiser',
+      'date': '10/20/2021',
+      'location': '123 Test Street',
+      'description': 'good',
+      'isPositive': 'no'
+    },
+    {
+      'name': 'Kaiser',
+      'date': '10/20/2021',
+      'location': '123 Test Street',
+      'description': 'good',
+      'isPositive': 'no'
+    },
+    {
+      'name': 'Kaiser',
+      'date': '10/20/2021',
+      'location': '123 Test Street',
+      'description': 'good',
+      'isPositive': 'no'
+    },
+    {
+      'name': 'Kaiser',
+      'date': '10/20/2021',
+      'location': '123 Test Street',
+      'description': 'good',
+      'isPositive': 'no'
+    },
+    {
+      'name': 'Kaiser',
+      'date': '10/20/2021',
+      'location': '123 Test Street',
+      'description': 'good',
+      'isPositive': 'no'
+    },
+    {
+      'name': 'Kaiser',
+      'date': '10/20/2021',
+      'location': '123 Test Street',
+      'description': 'good',
+      'isPositive': 'no'
+    },
+  ];
+
+  void _setLocation(List<int> coords) {
+>>>>>>> 35b7f693b40b14366495aa0e28654d22e7aa8927
     setState(() {
-      userFormData['Location'] = coords;
+      userFormData['location'] = coords;
     });
   }
 
@@ -35,7 +145,9 @@ class _PersonalInfoState extends State {
 
   void _Submit() {
     print(userFormData);
-    //TODO implement submission
+    _personalData.add(userFormData);
+    setState(() {});
+    Navigator.pop(context);
   }
 
   void _opennewpage() {
@@ -67,7 +179,15 @@ class _PersonalInfoState extends State {
           Expanded(
               child: Padding(
             padding: EdgeInsets.all(10.0),
+<<<<<<< HEAD
             child: SizedBox(height: 300, child: TestTable()),
+=======
+            child: SizedBox(
+                height: 300,
+                child: TestTable(
+                  data: _personalData,
+                )),
+>>>>>>> 35b7f693b40b14366495aa0e28654d22e7aa8927
           )),
           const Text("Have you tested positive for Covid in the past 14 Days?",
               style: TextStyle(fontSize: 15)),
