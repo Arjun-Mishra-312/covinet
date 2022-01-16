@@ -2,7 +2,10 @@ import 'package:covinet/Screens/HomePage/Tabs/AddLocation.dart';
 import 'package:flutter/material.dart';
 
 class AddTest extends StatelessWidget {
-  const AddTest({Key? key}) : super(key: key);
+  final Function setData;
+  final Function submit;
+  const AddTest({Key? key, required this.setData, required this.submit})
+      : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -21,6 +24,7 @@ class AddTest extends StatelessWidget {
                     obscureText: false,
                     decoration: InputDecoration(
                         border: OutlineInputBorder(), labelText: 'Name:'),
+                    onChanged: (value) => setData('Name', value),
                   ),
                 ))
               ],
@@ -36,6 +40,7 @@ class AddTest extends StatelessWidget {
                     obscureText: false,
                     decoration: InputDecoration(
                         border: OutlineInputBorder(), labelText: 'MM/DD/YYYY'),
+                    onChanged: (value) => setData('Date', value),
                   ),
                 ))
               ],
@@ -43,14 +48,16 @@ class AddTest extends StatelessWidget {
             Row(
               children: <Widget>[
                 Padding(
-                    padding: EdgeInsets.all(25), child: const Text("Location")),
+                    padding: EdgeInsets.all(25),
+                    child: const Text("Description")),
                 Flexible(
                     child: Padding(
                   padding: EdgeInsets.all(30),
                   child: TextField(
                     obscureText: false,
                     decoration: InputDecoration(
-                        border: OutlineInputBorder(), labelText: 'Location'),
+                        border: OutlineInputBorder(), labelText: 'Description'),
+                    onChanged: (value) => setData('Description', value),
                   ),
                 ))
               ],
@@ -67,6 +74,7 @@ class AddTest extends StatelessWidget {
                     obscureText: false,
                     decoration: InputDecoration(
                         border: OutlineInputBorder(), labelText: 'Yes/No'),
+                    onChanged: (value) => setData('isPositive', value),
                   ),
                 ))
               ],
@@ -78,9 +86,7 @@ class AddTest extends StatelessWidget {
                   child: ElevatedButton(
                     child: Text("Submit"),
                     onPressed: () {
-                      // if (_formKey.currentState.validate()) {
-                      //   _formKey.currentState.save();
-                      // }
+                      submit();
                     },
                   ),
                 ),
