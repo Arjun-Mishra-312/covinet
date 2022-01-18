@@ -12,8 +12,7 @@ First inspiration was sort of like AirBnb, where people who have Covid look for 
 Then turned into an app to network with people around you who have covid, also trade information.
 
 
-![Alt text]
-(https://cdn.discordapp.com/attachments/930709522119540810/932320060536680498/CoviNet_logo.png)
+![Alt text](https://cdn.discordapp.com/attachments/930709522119540810/932320060536680498/CoviNet_logo.png)
 
 
 ## 💻What it does
@@ -27,8 +26,7 @@ Then turned into an app to network with people around you who have covid, also t
 
 •   Helps Users find nearby repaid covid test centers
 
-![Alt text]
-(https://cdn.discordapp.com/attachments/931778785072779324/932325472421937192/localhost_61936___-_Person_1_-_Microsoft_Edge_16-01-2022_22_33_10.png)
+![Alt text](https://cdn.discordapp.com/attachments/931778785072779324/932325472421937192/localhost_61936___-_Person_1_-_Microsoft_Edge_16-01-2022_22_33_10.png)
 
 ## 🛠️How we built it
 
@@ -61,8 +59,7 @@ Then turned into an app to network with people around you who have covid, also t
 
 •   Successfully implementing Youtube and NEWS API 
 
-![Alt text]
-(https://cdn.discordapp.com/attachments/931778785072779324/932328209746362437/localhost_61936___-_Person_1_-_Microsoft_Edge_16-01-2022_22_30_14.png)
+![Alt text](https://cdn.discordapp.com/attachments/931778785072779324/932328209746362437/localhost_61936___-_Person_1_-_Microsoft_Edge_16-01-2022_22_30_14.png)
 
 
 ## 📖What we learned
@@ -78,8 +75,7 @@ Then turned into an app to network with people around you who have covid, also t
 
 **Number of cases in a region using the synthetic dataset from Gretel**
 
-![Alt text]
-(https://cdn.discordapp.com/attachments/931778785072779324/932326302697013268/localhost_61936___-_Person_1_-_Microsoft_Edge_16-01-2022_22_31_07.png)
+![Alt text](https://cdn.discordapp.com/attachments/931778785072779324/932326302697013268/localhost_61936___-_Person_1_-_Microsoft_Edge_16-01-2022_22_31_07.png)
 
 ## Demo Link
 https://www.youtube.com/watch?v=PJ6XaJ0rFDQ
