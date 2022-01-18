@@ -2,6 +2,7 @@
 
 ## Usage
 Run lib/main.dart
+
 Will have to register an account first
 
 ## 💡Inspiration
